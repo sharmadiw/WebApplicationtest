@@ -8,16 +8,18 @@ namespace WebApplicationtest.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IProductService _productService;
+        public HomeController(ILogger<HomeController> logger, IProductService productService)
         {
             _logger = logger;
+            _productService = productService;
         }
 
         public IActionResult Index()
         {
-            ProductService productService = new ProductService();
-            var productList = productService.GetProducts();
+            //ProductService productService = new ProductService();
+            //var productList = productService.GetProducts();
+            var productList = _productService.GetProducts();
             return View(productList);
         }
 
