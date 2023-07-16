@@ -2,7 +2,7 @@ using WebApplicationtest.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddTransient<ILogger, ILogger>();
+//builder.Services.AddTransient<ILogger, ILogger>();
 builder.Services.AddTransient<IProductService, ProductService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
